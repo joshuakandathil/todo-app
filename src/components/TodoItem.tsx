@@ -1,12 +1,18 @@
 import React from "react";
 
-const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
+type Props = {
+  todo: Todo;
+  toggleTodo: (id?: number) => void;
+  deleteTodo: (id?: number) => void;
+};
+
+const TodoItem: React.FC<Props> = ({ todo, toggleTodo, deleteTodo }: Props) => {
   return (
     <div className="todo-item">
       <input
         type="checkbox"
         checked={todo.completed}
-        onChange={toggleTodo}
+        onChange={() => toggleTodo(todo.id)}
         style={{ marginRight: "10px" }}
       />
 
@@ -14,7 +20,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
 
       <button
         className="delete"
-        onClick={deleteTodo}
+        onClick={() => deleteTodo(todo.id)}
         style={{ marginLeft: "20px" }}
       >
         Delete

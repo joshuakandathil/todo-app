@@ -1,26 +1,27 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { dependencies } = require("./package.json");
+const path = require("path");
 
 module.exports = {
-  entry: "./src/entry.js",
   mode: "development",
+  entry: "./src/index.tsx",
+  output: {
+    publicPath: "auto",
+    path: path.resolve(__dirname, "dist"),
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"],
+  },
   devServer: {
     port: 3001,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)?$/,
+        test: /\.(js|jsx|tsx|ts)$/,
+        loader: "ts-loader",
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react"],
-            },
-          },
-        ],
       },
       {
         test: /\.css$/i,
@@ -42,17 +43,16 @@ module.exports = {
         ...dependencies,
         react: {
           singleton: true,
+          eager: true,
           requiredVersion: dependencies["react"],
         },
         "react-dom": {
           singleton: true,
+          eager: true,
           requiredVersion: dependencies["react-dom"],
         },
       },
     }),
   ],
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
   target: "web",
 };
