@@ -15,6 +15,7 @@ module.exports = {
   },
   devServer: {
     port: 3001,
+    open: true,
   },
   module: {
     rules: [
@@ -37,7 +38,7 @@ module.exports = {
       name: "TodoApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./TodoList": "./src/App",
+        "./TodoApp": "./src/components/TodoWrapper",
       },
       shared: {
         ...dependencies,
@@ -54,5 +55,4 @@ module.exports = {
       },
     }),
   ],
-  target: "web",
 };
