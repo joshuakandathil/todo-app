@@ -16,6 +16,11 @@
   padding: 12px;
 }
 
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
 input[type="text"] {
   padding: 12px;
   width: 320px;

@@ -10,11 +10,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
         style={{ marginRight: "10px" }}
       />
 
-      <span
-        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-      >
-        {todo.text}
-      </span>
+      <span className={todo.completed ? "completed" : ""}>{todo.text}</span>
 
       <button
         className="delete"
