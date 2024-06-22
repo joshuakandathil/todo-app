@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Todo } from "../models/Todo";
+import "./Todo.css";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
@@ -9,7 +11,7 @@ const TodoWrapper: React.FC = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    todos.length && localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = (text: string) => {

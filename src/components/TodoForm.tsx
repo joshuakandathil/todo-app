@@ -4,7 +4,7 @@ type Props = {
   addTodo: (text: string) => void;
 };
 
-const TodoForm = ({ addTodo }: Props) => {
+const TodoForm: React.FC<Props> = ({ addTodo }: Props) => {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
