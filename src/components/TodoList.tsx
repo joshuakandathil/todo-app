@@ -1,4 +1,5 @@
 import React from "react";
+import { Todo } from "../models/Todo";
 import TodoItem from "./TodoItem";
 
 type Props = {
