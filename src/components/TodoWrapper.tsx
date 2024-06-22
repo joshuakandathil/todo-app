@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import "./Todo.css";
 
 const TodoWrapper: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>(() => {
