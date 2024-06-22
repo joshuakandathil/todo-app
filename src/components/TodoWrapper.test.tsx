@@ -1,6 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TodoWrapper from "./TodoWrapper";
+import exp from "constants";
 
 describe("TodoWrapper", () => {
   it("initially loads saved todos from localStorage", () => {
@@ -15,7 +16,7 @@ describe("TodoWrapper", () => {
   it("adds a new todo", () => {
     Storage.prototype.getItem = jest.fn(() => null);
     render(<TodoWrapper />);
-    fireEvent.change(screen.getByPlaceholderText("Add new todo"), {
+    fireEvent.change(screen.getByPlaceholderText("Type a new todo.."), {
       target: { value: "New Todo" },
     });
     fireEvent.click(screen.getByText("Add"));
@@ -28,10 +29,17 @@ describe("TodoWrapper", () => {
     ]);
     Storage.prototype.getItem = jest.fn(() => testTodos);
     render(<TodoWrapper />);
-    fireEvent.click(screen.getByLabelText("Toggle Todo"));
-    expect(screen.getByLabelText("Toggle Todo").parentElement).toHaveClass(
-      "completed"
+    const todo = screen.getByText("Toggle Todo");
+    expect(todo).not.toHaveClass("completed");
+
+    const checkbox = todo.parentElement?.querySelector(
+      'input[type="checkbox"]'
     );
+    if (!checkbox) throw new Error("Toggle checkbox not found");
+
+    fireEvent.click(checkbox);
+
+    expect(todo).toHaveClass("completed");
   });
 
   it("deletes a todo", () => {
@@ -40,23 +48,27 @@ describe("TodoWrapper", () => {
     ]);
     Storage.prototype.getItem = jest.fn(() => testTodos);
     render(<TodoWrapper />);
-    fireEvent.click(screen.getByLabelText("Delete Delete Todo"));
+
+    const todo = screen.getByText("Delete Todo");
+    const deleteButton = todo.parentElement?.querySelector("button");
+    if (!deleteButton) throw new Error("Delete button not found");
+
+    fireEvent.click(deleteButton);
     expect(screen.queryByText("Delete Todo")).not.toBeInTheDocument();
   });
 
   it("saves todos to localStorage on update", () => {
     const spy = jest.spyOn(Storage.prototype, "setItem");
     Storage.prototype.getItem = jest.fn(() => null);
+    Date.now = jest.fn(() => 1);
     render(<TodoWrapper />);
-    fireEvent.change(screen.getByPlaceholderText("Add new todo"), {
+    fireEvent.change(screen.getByPlaceholderText("Type a new todo.."), {
       target: { value: "Save Todo" },
     });
     fireEvent.click(screen.getByText("Add"));
     expect(spy).toHaveBeenCalledWith(
       "todos",
-      JSON.stringify([
-        { text: "Save Todo", completed: false, id: expect.any(Number) },
-      ])
+      JSON.stringify([{ text: "Save Todo", completed: false, id: 1 }])
     );
   });
 });

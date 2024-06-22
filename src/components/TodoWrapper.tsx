@@ -11,7 +11,7 @@ const TodoWrapper: React.FC = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    todos.length && localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = (text: string) => {
