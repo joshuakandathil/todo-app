@@ -16,6 +16,7 @@ Following core functionalities are implemented:
 3. Todos are saved and retreived from localstorage inorder to persist state on page refresh.
 4. Unit tests are included for verifying core functionalities
 5. Edge cases like empty string inputs and local storage unavailability are handled.
+6. Uses CSS Modules to have style encapsulation
 
 ## Setting up the project
 

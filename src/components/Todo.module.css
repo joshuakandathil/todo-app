@@ -5,11 +5,11 @@
   flex-direction: column;
 }
 
-.todo-list {
+.todoList {
   margin-top: 60px;
 }
 
-.todo-item {
+.todoItem {
   display: flex;
   align-items: center;
   gap: 10px;
