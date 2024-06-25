@@ -6,13 +6,17 @@ type Props = {
   addTodo: (text: string) => void;
 };
 
+type FormData = {
+  todo: string;
+};
+
 const TodoForm: React.FC<Props> = ({ addTodo }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<FormData>();
 
   const onSubmit = (data: FieldValues) => {
     addTodo(data.todo);

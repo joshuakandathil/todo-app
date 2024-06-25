@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Todo } from "../models/Todo";
-import TodoForm from "./TodoForm/TodoForm";
-import TodoList from "./TodoList/TodoList";
+import TodoForm from "./todo-form/TodoForm";
+import TodoList from "./todo-list/TodoList";
 import * as styles from "./TodoWrapper.module.scss";
 
 const TodoWrapper: React.FC = () => {
