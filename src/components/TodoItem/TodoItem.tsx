@@ -1,5 +1,5 @@
 import React from "react";
-import { Todo } from "../models/Todo";
+import { Todo } from "../../models/Todo";
 import * as styles from "./TodoItem.module.scss";
 
 type Props = {

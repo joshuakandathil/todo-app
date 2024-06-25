@@ -1,6 +1,6 @@
 import React from "react";
-import { Todo } from "../models/Todo";
-import TodoItem from "./TodoItem";
+import { Todo } from "../../models/Todo";
+import TodoItem from "../TodoItem/TodoItem";
 import * as styles from "./TodoList.module.scss";
 
 type Props = {
