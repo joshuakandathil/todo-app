@@ -6,8 +6,10 @@ Following core functionalities are implemented:
 
 1. Creates new Todo and adds them to a list of Todos
 2. Todo items are persisted to localstorage to be available on page refresh
-3. Todo items can be marked as complete/incomplete using checkbox
-4. Todos can be deleted from the list of todos
+3. Todo items can be marked as complete/incomplete using checkbox and can be deleted from the list of todos
+4. Todos can be filtered using completion status
+
+![Project Screenshot](screenshot.png)
 
 ### Architechture
 
