@@ -1,11 +1,23 @@
 .todoForm :global {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   margin-top: 20px;
 
   .form-control {
     display: flex;
     flex-direction: column;
+
+    input[type="text"] {
+      padding: 12px;
+      width: 320px;
+      margin-right: 16px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 8px;
+    }
   }
 
   button {

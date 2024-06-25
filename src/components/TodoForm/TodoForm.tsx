@@ -27,7 +27,7 @@ const TodoForm: React.FC<Props> = ({ addTodo }: Props) => {
         />
 
         {errors.todo?.type === "required" && (
-          <span>This field is required</span>
+          <span className="error">This field is required</span>
         )}
       </div>
 
