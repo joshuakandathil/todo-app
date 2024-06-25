@@ -20,12 +20,7 @@ const TodoItem: React.FC<Props> = ({ todo, toggleTodo, deleteTodo }: Props) => {
 
       <span className={todo.completed ? "completed" : ""}>{todo.text}</span>
 
-      <button
-        onClick={() => deleteTodo(todo.id)}
-        style={{ marginLeft: "20px" }}
-      >
-        Delete
-      </button>
+      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
     </div>
   );
 };
