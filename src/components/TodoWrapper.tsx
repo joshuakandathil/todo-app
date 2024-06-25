@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Todo } from "../models/Todo";
-import "./Todo.css";
+import * as styles from "./TodoWrapper.module.scss";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
@@ -39,7 +39,7 @@ const TodoWrapper: React.FC = () => {
   };
 
   return (
-    <div className="todos">
+    <div className={styles.todos}>
       <h2>Todo List</h2>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />

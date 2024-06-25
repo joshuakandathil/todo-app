@@ -25,8 +25,8 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.(css|scss)$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
@@ -38,7 +38,7 @@ module.exports = {
       name: "TodoApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./TodoApp": "./src/components/TodoWrapper",
+        "./TodoWrapper": "./src/components/TodoWrapper",
       },
       shared: {
         ...dependencies,
@@ -51,6 +51,11 @@ module.exports = {
           singleton: true,
           eager: true,
           requiredVersion: dependencies["react-dom"],
+        },
+        "react-hook-form": {
+          singleton: true,
+          eager: true,
+          requiredVersion: dependencies["react-hook-form"],
         },
       },
     }),

@@ -1,5 +1,6 @@
 import React from "react";
 import { Todo } from "../models/Todo";
+import * as styles from "./TodoItem.module.scss";
 
 type Props = {
   todo: Todo;
@@ -9,7 +10,7 @@ type Props = {
 
 const TodoItem: React.FC<Props> = ({ todo, toggleTodo, deleteTodo }: Props) => {
   return (
-    <div className="todo-item">
+    <div className={styles.todoItem}>
       <input
         type="checkbox"
         checked={todo.completed}
@@ -20,7 +21,6 @@ const TodoItem: React.FC<Props> = ({ todo, toggleTodo, deleteTodo }: Props) => {
       <span className={todo.completed ? "completed" : ""}>{todo.text}</span>
 
       <button
-        className="delete"
         onClick={() => deleteTodo(todo.id)}
         style={{ marginLeft: "20px" }}
       >

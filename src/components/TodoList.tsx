@@ -1,6 +1,7 @@
 import React from "react";
 import { Todo } from "../models/Todo";
 import TodoItem from "./TodoItem";
+import * as styles from "./TodoList.module.scss";
 
 type Props = {
   todos: Todo[];
@@ -13,10 +14,11 @@ const TodoList: React.FC<Props> = ({
   toggleTodo,
   deleteTodo,
 }: Props) => {
-  if (todos.length === 0) return <div className="todo-list">No todos!</div>;
+  if (todos.length === 0)
+    return <div className={styles.todoList}>No todos!</div>;
 
   return (
-    <div className="todo-list">
+    <div className={styles.todoList}>
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}

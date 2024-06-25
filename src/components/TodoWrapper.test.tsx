@@ -1,7 +1,5 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import TodoWrapper from "./TodoWrapper";
-import exp from "constants";
 
 describe("TodoWrapper", () => {
   it("initially loads saved todos from localStorage", () => {
