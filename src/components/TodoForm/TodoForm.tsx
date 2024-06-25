@@ -11,10 +11,12 @@ const TodoForm: React.FC<Props> = ({ addTodo }: Props) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data: FieldValues) => {
     addTodo(data.todo);
+    reset();
   };
 
   return (
