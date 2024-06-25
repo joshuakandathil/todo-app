@@ -1,0 +1,19 @@
+.todoForm :global {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .form-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    padding: 12px 24px;
+  }
+
+  button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+}

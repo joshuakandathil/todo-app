@@ -1,6 +1,6 @@
 import React from "react";
 import { Todo } from "../models/Todo";
-import * as styles from "./Todo.module.css";
+import * as styles from "./TodoItem.module.scss";
 
 type Props = {
   todo: Todo;
@@ -18,12 +18,9 @@ const TodoItem: React.FC<Props> = ({ todo, toggleTodo, deleteTodo }: Props) => {
         style={{ marginRight: "10px" }}
       />
 
-      <span className={todo.completed ? styles.completed : ""}>
-        {todo.text}
-      </span>
+      <span className={todo.completed ? "completed" : ""}>{todo.text}</span>
 
       <button
-        className={styles.delete}
         onClick={() => deleteTodo(todo.id)}
         style={{ marginLeft: "20px" }}
       >

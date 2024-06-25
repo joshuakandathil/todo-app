@@ -1,7 +1,7 @@
 import React from "react";
 import { Todo } from "../models/Todo";
 import TodoItem from "./TodoItem";
-import * as styles from "./Todo.module.css";
+import * as styles from "./TodoList.module.scss";
 
 type Props = {
   todos: Todo[];
